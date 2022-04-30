@@ -1,0 +1,29 @@
+### Warden
+
+## Rust
+# Build output and other generated artifacts
+.cargo-ok
+/target
+**/*.rs.bk
+# Comment out the following line if executable
+#Cargo.lock
+
+## Local / Internal
+# Environment variables
+.env
+.env*
+!.env.example
+
+# Logs
+logs/
+
+# IDEs and Editors
+.idea/
+.vscode/*
+
+## Misc
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
