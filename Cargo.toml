@@ -11,15 +11,14 @@ license = "MIT OR Apache-2.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+axum = { version = "0.5.4", features = ["headers", "http2"] }
 hyper = { version = "0.14", features = ["runtime", "server"] }
 serde_json = "1"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 tower = "0.4"
-
-[dependencies.axum]
-version = "0.5"
-default-features = false
-features = ["headers", "http2", "json", "matched-path", "original-uri", "query", "tower-log"]
+tower-http = { version = "0.3", features = ["trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 
 [profile.dev]
 debug = 0 # Faster compile times during development

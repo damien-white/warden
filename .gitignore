@@ -6,7 +6,7 @@
 /target
 **/*.rs.bk
 # Comment out the following line if executable
-#Cargo.lock
+Cargo.lock
 
 ## Local / Internal
 # Environment variables
