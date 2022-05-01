@@ -1,25 +1,25 @@
-use std::net::TcpListener;
-
-use tracing::debug;
+use tokio::io;
+use tracing::{debug, error};
 
 use warden::{app, telemetry};
 
 #[tokio::main]
-async fn main() -> std::io::Result<()> {
+async fn main() -> io::Result<()> {
     telemetry::init_logging()?;
 
-    let listener = TcpListener::bind("0.0.0.0:4567")?;
+    let address = "0.0.0.0:4567"
+        .parse()
+        .expect("socket address must be valid");
 
-    let address = listener.local_addr()?;
-    debug!("Starting service. Listening at: {address}");
-
-    axum::Server::from_tcp(listener)
-        .unwrap()
+    debug!(%address, "starting service");
+    if let Err(err) = axum::Server::bind(&address)
         .serve(app::router().into_make_service())
         .await
-        .expect("server failed to start");
+    {
+        error!(reason = ?err, "failed to start service")
+    }
 
-    // TODO: integrate shutdown hooks such as SIGTERM, etc.
+    // TODO: implement graceful shutdown via signal handler
     debug!("Shutdown signal received. Shutting down service.");
     Ok(())
 }

@@ -3,12 +3,18 @@ name = "warden"
 version = "0.1.0"
 edition = "2021"
 description = """
-Safe remote task execution service with webhook-event integration.
+Web service that leverages webhook events to automate the process of creating
+builds and deployments.
 """
 repository = "https://github.com/dark-fusion/warden"
 license = "MIT OR Apache-2.0"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "warden"
+path = "src/main.rs"
 
 [dependencies]
 axum = { version = "0.5.4", features = ["headers", "http2"] }

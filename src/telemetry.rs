@@ -1,9 +1,17 @@
-use std::fs::OpenOptions;
-use std::{fs::File, io, path::Path, sync::Arc};
+use std::{
+    fs::{File, OpenOptions},
+    io,
+    path::Path,
+    sync::Arc,
+};
 
-use tracing_subscriber::{filter::Directive, filter::LevelFilter, prelude::*, EnvFilter, Registry};
+use tracing_subscriber::{
+    filter::{Directive, LevelFilter},
+    prelude::*,
+    EnvFilter, Registry,
+};
 
-// TODO: Use `DEFAULT_DIRECTIVE` in initial `EnvFilter` builder
+// TODO: Make use of `DEFAULT_DIRECTIVE` in `EnvFilter` builder
 const DEFAULT_DIRECTIVE: &str = "warden=trace";
 
 pub fn init_logging() -> io::Result<()> {
