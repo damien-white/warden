@@ -1,3 +1,4 @@
+//! Logging and telemetry based on the `tracing` ecosystem.
 use std::{
     fs::{File, OpenOptions},
     io,

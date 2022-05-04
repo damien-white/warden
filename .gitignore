@@ -9,6 +9,10 @@
 Cargo.lock
 
 ## Local / Internal
+# Configuration
+/config/*.json
+!/config/example.json
+
 # Environment variables
 .env
 .env*

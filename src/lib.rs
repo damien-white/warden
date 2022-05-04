@@ -1,5 +1,3 @@
 //! Warden is a task automation service
-pub mod app;
+pub mod service;
 pub mod telemetry;
-
-mod handlers;

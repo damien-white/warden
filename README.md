@@ -1,9 +1,21 @@
-# warden
+<div align="center">
+  <h1>Warden</h1>
 
 [![Crates.io](https://img.shields.io/crates/v/warden.svg)](https://crates.io/crates/warden)
 [![Docs.rs](https://docs.rs/warden/badge.svg)](https://docs.rs/warden)
 [![CI](https://github.com/dark-fusion/warden/workflows/CI/badge.svg)](https://github.com/dark-fusion/warden/actions)
 [![Coverage Status](https://coveralls.io/repos/github/dark-fusion/warden/badge.svg?branch=main)](https://coveralls.io/github/dark-fusion/warden?branch=main)
+
+</div>
+
+
+## Project Description
+
+Warden is a simple webservice that helps automate builds, testing and deployments.
+
+## Design Choices
+
+Warden's design choices were made with the goals of building a service that is secure, reliable and easily-configurable.
 
 ## Installation
 

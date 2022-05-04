@@ -1,7 +1,7 @@
 use tokio::io;
 use tracing::{debug, error};
 
-use warden::{app, telemetry};
+use warden::{service::app, telemetry};
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
@@ -13,7 +13,7 @@ async fn main() -> io::Result<()> {
 
     debug!(%address, "starting service");
     if let Err(err) = axum::Server::bind(&address)
-        .serve(app::router().into_make_service())
+        .serve(app().into_make_service())
         .await
     {
         error!(reason = ?err, "failed to start service")

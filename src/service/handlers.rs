@@ -1,3 +1,4 @@
+//! Router handler functions used to process requests and produce responses.
 use axum::{
     extract::Path,
     http::{StatusCode, Version},
@@ -9,14 +10,14 @@ use tracing::info;
 
 /// Gets the current status of the service
 #[tracing::instrument]
-pub async fn health_check() -> impl IntoResponse {
+pub(crate) async fn health_check() -> impl IntoResponse {
     info!("processing health check");
     StatusCode::OK
 }
 
 /// Processes incoming payloads in JSON format
 #[tracing::instrument(skip(payload))]
-pub async fn parse_webhook_payload(
+pub(crate) async fn parse_webhook_payload(
     Path((owner, repo)): Path<(String, String)>,
     Json(payload): Json<Value>,
 ) -> impl IntoResponse {
