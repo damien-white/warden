@@ -11,7 +11,7 @@
 
 ## Project Description
 
-Warden is a simple webservice that helps automate builds, testing and deployments.
+Warden is a web-service for automating your build, test and deployment processes.
 
 ## Design Choices
 

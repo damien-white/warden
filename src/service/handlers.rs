@@ -1,4 +1,4 @@
-//! Router handler functions used to process requests and produce responses.
+//! Route handlers for processing requests and producing responses.
 use axum::{
     extract::Path,
     http::{StatusCode, Version},

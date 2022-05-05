@@ -1,3 +1,4 @@
+//! This module contains service-related logic such as routing and middleware.
 mod handlers;
 
 use axum::routing::{get, post};

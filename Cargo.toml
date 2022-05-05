@@ -3,8 +3,7 @@ name = "warden"
 version = "0.1.0"
 edition = "2021"
 description = """
-Web service that leverages webhook events to automate the process of creating
-builds and deployments.
+Web-service for automating your build, test and deployment processes.
 """
 repository = "https://github.com/dark-fusion/warden"
 license = "MIT OR Apache-2.0"
@@ -17,8 +16,10 @@ name = "warden"
 path = "src/main.rs"
 
 [dependencies]
-axum = { version = "0.5.4", features = ["headers", "http2"] }
+axum = { version = "0.5", features = ["headers", "http2"] }
+config = { version = "0.13", default-features = false, features = ["json"] }
 hyper = { version = "0.14", features = ["runtime", "server"] }
+serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 tower = "0.4"
@@ -32,3 +33,5 @@ debug = 0 # Faster compile times during development
 [profile.release]
 codegen-units = 1
 lto = true
+
+[features]
