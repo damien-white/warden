@@ -16,7 +16,7 @@ name = "warden"
 path = "src/main.rs"
 
 [dependencies]
-axum = { version = "0.5", features = ["headers", "http2"] }
+axum = { version = "0.6", features = ["headers", "http2"] }
 config = { version = "0.13", default-features = false, features = ["json"] }
 hyper = { version = "0.14", features = ["runtime", "server"] }
 serde = { version = "1", features = ["derive"] }
